@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">DontCallMe</string>
+    <string name="title_activity_contactos">Contactos</string>
+    <string name="title_activity_lista_negra">Lista negra</string>
+    <string name="addNumber">Añadir número</string>
+    <string name="deleteNumber">Eliminar números</string>
+    <string name="confirm">Confirmar</string>
+    <string name="emptylist">Esta lista está vacía</string>
+    <string name="nameid">Nombre/ID</string>
+    <string name="telephonenumber">Número</string>
+    <string name="addtolist">Añadir</string>
+</resources>
