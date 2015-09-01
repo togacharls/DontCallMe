@@ -3,7 +3,6 @@ package charls.dontcallme.Application;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -24,13 +23,11 @@ public class DontCalleMeApplication extends Application {
     @Override
     public void onCreate(){
         super.onCreate();
-        Log.w("APPLICATION", "ONCREATE");
         context = getApplicationContext();
         notificationService = getSystemService(Context.NOTIFICATION_SERVICE);
         notificacionIntent = new Intent(context, ListaNegraActivity.class);
 
         db = new Database(context);
-        Log.w("APP-DATABASE", "CREATED");
     }
 
     public static Context getContext(){
@@ -47,5 +44,13 @@ public class DontCalleMeApplication extends Application {
 
     public static ArrayList<Usuario> getBlackList(){
         return db.getBlackList();
+    }
+
+    public static void addUser(Usuario usuario){
+        db.add(usuario.getNombre(), usuario.getTelefono());
+    }
+
+    public static void removeUser(Usuario usuario){
+        db.remove(usuario.getTelefono());
     }
 }

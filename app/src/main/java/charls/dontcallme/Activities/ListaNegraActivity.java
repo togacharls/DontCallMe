@@ -71,7 +71,8 @@ public class ListaNegraActivity extends ActionBarActivity {
             case R.id.action_delete:
                 for(ItemManager itemManager: blackList){
                     if(itemManager.getSeleccionado()){
-                        db.remove(itemManager.getUsuario().getTelefono());
+                        //db.remove(itemManager.getUsuario().getTelefono());
+                        DontCalleMeApplication.removeUser(itemManager.getUsuario());
                     }
                 }
                 //Se actualiza la lista: TODO cambiar esto

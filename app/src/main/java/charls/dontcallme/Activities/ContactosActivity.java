@@ -164,7 +164,6 @@ public class ContactosActivity extends ActionBarActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        Context context = this;
 
         switch(id){
             case R.id.action_done:
@@ -173,12 +172,14 @@ public class ContactosActivity extends ActionBarActivity {
                 for(ItemManager itemManager: adapter.getLista()){
                     //Si el itemManager está seleccionado y no se encuentra en la BD, se añade a ésta.
                     if(itemManager.getSeleccionado() && !  DontCalleMeApplication.getBlackList().contains(itemManager)){
-                        db.add(itemManager.getUsuario().getNombre(), itemManager.getUsuario().getTelefono());
+                        //db.add(itemManager.getUsuario().getNombre(), itemManager.getUsuario().getTelefono());
+                        DontCalleMeApplication.addUser(itemManager.getUsuario());
                     }
 
                     //Si el itemManager no está seleccionado pero se encuentra en la BD, se elimina de ésta.
                     else if(!itemManager.getSeleccionado()&& !DontCalleMeApplication.getBlackList().contains(itemManager)){
-                        db.remove(itemManager.getUsuario().getTelefono());
+                        //db.remove(itemManager.getUsuario().getTelefono());
+                        DontCalleMeApplication.removeUser(itemManager.getUsuario());
                     }
                 }
                 //Se mata la activity para que así, en caso de que el usuario presione el botón "back", salga de la app
