@@ -72,7 +72,9 @@ public class ContactosActivity extends ActionBarActivity {
                         String numero = pCur.getString(pCur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
                         //Se eliminan los espacios con los que se hayan podido guardar los números:
                         numero = numero.replaceAll(" ", "");
-                        telefonosAsociados.add(numero);
+                        if(!telefonosAsociados.contains(numero)) {
+                            telefonosAsociados.add(numero);
+                        }
                     }
                     pCur.close();
                 }
